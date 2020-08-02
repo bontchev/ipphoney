@@ -61,6 +61,32 @@ ip route get 8.8.8.8
 The network interface name should be the name after the word `dev` in the
 output.
 
+If you do decide to ignore our advice and run the honeypot on port 631 anyway,
+there are some problems that need to be solved first. In particular, on Linux
+processes owned by non-root users are not allowed to listen to ports lower
+than 1024. One way to bypass this restriction is by using `authbind` but
+even then you'll need to go through some hoops because even `authbind` has
+some problems letting your non-root proccess listen to ports 512-1023.
+
+From a user who can `sudo` (i.e., not from the user `ipphoney`), do the
+following
+
+```bash
+sudo apt-get install authbind
+sudo touch '/etc/authbind/byport/!631'
+sudo chown ipphoney:ipphoney '/etc/authbind/byport/!631'
+sudo chmod 770 '/etc/authbind/byport/!631'
+```
+
+Note how the file name is enclosed in single quotes and the port name
+begins with an '!' character. This is necessary for `authbind` to allow
+listening on a port that is in the 512-1023 range.
+
+Then, after [step 6](#step-6-create-a-configuration-file) , edit the file
+`etc/honeypot-launch.cfg` and modify the `AUTHBIND_ENABLED` setting.
+
+Again, we advise against using this approach.
+
 ## Step 3: Create a user account
 
 It is strongly recommended to run the honeypot as a dedicated non-root user
@@ -269,7 +295,7 @@ docker run -d -p 6631:6631/tcp -u $(id -u):$(id -g) -v $(HOME}/ipphoney:/ipphone
 
 ## Command-line options
 
-ipphoney supports the following command-line options:
+IPP Honey supports the following command-line options:
 
 ```options
   -h, --help            show this help message and exit

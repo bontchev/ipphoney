@@ -70,7 +70,12 @@ honeypot_start() {
 
     if [ -z "$PID" ]; then
         echo "Starting the honeypot ..."
-        nohup python "${HONEYPOTDIR}/ipphoney.py" &>/dev/null & echo $! >"${HONEYPOTDIR}/${PIDFILE}"
+        if [ "$AUTHBIND_ENABLED" = "no" ]
+        then
+            nohup python "${HONEYPOTDIR}/ipphoney.py" &>/dev/null & echo $! >"${HONEYPOTDIR}/${PIDFILE}"
+        else
+            nohup authbind --deep python "${HONEYPOTDIR}/ipphoney.py" &>/dev/null & echo $! >"${HONEYPOTDIR}/${PIDFILE}"
+        fi
         echo 2>&1 "The honeypot was started successfully."
     fi
 }
@@ -122,6 +127,7 @@ config_dir=${HONEYPOTDIR}/etc
 config_file_name=${config_dir}/honeypot-launch.cfg
 
 HONEYPOT_VIRTUAL_ENV="$(config_get HONEYPOT_VIRTUAL_ENV)";
+AUTHBIND_ENABLED="$(config_get AUTHBIND_ENABLED)";
 
 cd "${HONEYPOTDIR}"
 PIDFILE=honeypot.pid
