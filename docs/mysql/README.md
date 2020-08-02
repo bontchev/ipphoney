@@ -1,4 +1,4 @@
-# Sending the Output of the honeypot to a MySQL Database
+# Sending the Output of the Honeypot to a MySQL Database
 
 - [Sending the Output of the honeypot to a MySQL Database](#sending-the-output-of-the-honeypot-to-a-mysql-database)
   - [Prerequisites](#prerequisites)

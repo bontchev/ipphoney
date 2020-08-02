@@ -206,6 +206,7 @@ data other ways. Supported output plugins include:
 
 - JSON
 - MySQL
+- SQLite3
 - text
 
 More plugins are likely to be added in the future.
