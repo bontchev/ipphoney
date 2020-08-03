@@ -258,17 +258,22 @@ class Index(Resource):
                 query['groups'][-1]['attributes'].append(attribute)
         if operation == operations['print-job']:
             document = data[index:]
-            hash = sha256(document).hexdigest()
-            filename = join(self.cfg['download_dir'], hash)
-            mkdir(self.cfg['download_dir'])
-            if not exists(filename):
-                with open(filename, 'wb') as f:
-                    f.write(document)
-            file_info = {}
-            file_info['filename'] = filename
-            file_info['filesize'] = len(document)
-            file_info['hash'] = hash
-            self.report_event(request, query, file_info)
+            doc_size = len(document)
+            size_ok = self.cfg['download_limit_size'] == 0 or doc_size <= self.cfg['download_limit_size']
+            if self.cfg['download_files'] and size_ok:
+                hash = sha256(document).hexdigest()
+                filename = join(self.cfg['download_dir'], hash)
+                mkdir(self.cfg['download_dir'])
+                if not exists(filename):
+                    with open(filename, 'wb') as f:
+                        f.write(document)
+                file_info = {}
+                file_info['filename'] = filename
+                file_info['filesize'] = doc_size
+                file_info['hash'] = hash
+                self.report_event(request, query, file_info)
+            else:
+                self.report_event(request, query)
         else:
             self.report_event(request, query)
         answer += self.process_operation(data, query)
