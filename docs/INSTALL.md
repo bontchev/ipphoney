@@ -82,7 +82,7 @@ Note how the file name is enclosed in single quotes and the port name
 begins with an '!' character. This is necessary for `authbind` to allow
 listening on a port that is in the 512-1023 range.
 
-Then, after [step 6](#step-6-create-a-configuration-file) , edit the file
+Then, at [step 7](#step-7-start-the-honeypot) , edit the file
 `etc/honeypot-launch.cfg` and modify the `AUTHBIND_ENABLED` setting.
 
 Again, we advise against using this approach.
