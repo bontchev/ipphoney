@@ -51,18 +51,6 @@ CREATE TABLE IF NOT EXISTS `user_agents` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE IF NOT EXISTS `content_types` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `content_type` VARCHAR(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
-CREATE TABLE IF NOT EXISTS `accept_languages` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `accept_language` VARCHAR(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
 CREATE TABLE IF NOT EXISTS `sensors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) DEFAULT NULL,
