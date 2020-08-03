@@ -96,16 +96,6 @@ log_path = log
 #logfile = log/ipphoney.json
 #epoch_timestamp = true
 
-# Text output
-# This writes audit log entries to a text file
-#
-#[output_textlog]
-#enabled = false
-#logfile = log/ipphoney.txt
-
-
-# TODO:
-
 # MySQL logging module
 # Database structure for this module is supplied in docs/sql/mysql.sql
 #
@@ -125,6 +115,32 @@ log_path = log
 # Location of the databases used for geolocation
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
+
+# SQLite3 logging module
+#
+# Logging to SQLite3 database. To init the database, use the script
+# docs/sql/sqlite3.sql:
+#     sqlite3 <db_file> < docs/sql/sqlite3.sql
+#
+#[output_sqlite]
+#enabled = false
+#debug = false
+#db_file = data/ipphoney.db
+# Whether to store geolocation data in the database
+#geoip = true
+# Location of the databases used for geolocation
+#geoip_citydb = data/GeoLite2-City.mmdb
+#geoip_asndb = data/GeoLite2-ASN.mmdb
+
+# Text output
+# This writes audit log entries to a text file
+#
+#[output_textlog]
+#enabled = false
+#logfile = log/ipphoney.txt
+
+
+# TODO:
 
 # HPFeeds
 #
@@ -214,22 +230,6 @@ enabled = false
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
 
-# SQLite3 logging module
-#
-# Logging to SQLite3 database. To init the database, use the script
-# docs/sql/sqlite3.sql:
-#     sqlite3 <db_file> < docs/sql/sqlite3.sql
-#
-#[output_sqlite]
-#enabled = false
-#debug = false
-#db_file = data/ipphoney.db
-# Whether to store geolocation data in the database
-#geoip = true
-# Location of the databases used for geolocation
-#geoip_citydb = data/GeoLite2-City.mmdb
-#geoip_asndb = data/GeoLite2-ASN.mmdb
-
 # Elasticsearch logging module
 #
 #[output_elastic]
@@ -289,6 +289,20 @@ enabled = false
 # Location of the databases used for geolocation
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
+
+# Local Syslog output module
+#
+# This sends log messages to the local syslog daemon.
+# Facility can be:
+# KERN, USER, MAIL, DAEMON, AUTH, LPR, NEWS, UUCP, CRON, SYSLOG and LOCAL0 to LOCAL7.
+#
+# Format can be:
+# text, cef
+#
+#[output_localsyslog]
+#enabled = false
+#facility = USER
+#format = text
 
 # Kafka logging module
 #
