@@ -71,8 +71,8 @@ def set_options():
     cfg_options['sensor'] = args.sensor
 
     cfg_options['server'] = CONFIG.get('honeypot', 'server_name', fallback='Lexmark_Web_Server')
-    cfg_options['download_limit_size'] = CONFIG.getint('honeypot', 'download_limit_size', fallback=0)
     cfg_options['download_files'] = CONFIG.getboolean('honeypot', 'download_files', fallback=True)
+    cfg_options['download_limit_size'] = CONFIG.getint('honeypot', 'download_limit_size', fallback=0)
     cfg_options['public_ip_url'] = CONFIG.get('honeypot', 'public_ip_url', fallback='https://ident.me')
     cfg_options['public_ip'] = get_public_ip(cfg_options['public_ip_url'])
     cfg_options['report_public_ip'] = CONFIG.getboolean('honeypot', 'report_public_ip', fallback=False)

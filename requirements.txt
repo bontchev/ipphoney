@@ -12,6 +12,9 @@ maxminddb>=1.3.0
 #  or try `sudo apt-get install libmysqlclient-dev`
 mysqlclient>=1.3.12
 
+
+# TODO:
+
 # hpfeed
 #hpfeeds>=3.0.0
 
@@ -38,9 +41,6 @@ mysqlclient>=1.3.12
 
 # postgres
 #psycopg2
-
-
-# TODO:
 
 # kafka
 #afkak
