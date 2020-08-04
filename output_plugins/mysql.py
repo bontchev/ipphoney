@@ -5,6 +5,7 @@ from core import output
 from core.config import CONFIG
 from core.tools import geolocate
 
+from json import dumps
 from hashlib import sha256
 from geoip2.database import Reader
 
@@ -155,7 +156,7 @@ class Output(output.Output):
         else:
             file_id = 'NULL'
         if 'query' in event:
-            query_id = self.get_id(txn, 'queries', 'query', event['query'])
+            query_id = self.get_id(txn, 'queries', 'query', dumps(event['query']))
         else:
             query_id = 'NULL'
 
@@ -169,7 +170,7 @@ class Output(output.Output):
             INSERT INTO `connections` (
                 `timestamp`, `ip`, `remote_port`, `request`, `url`, `operation`,
                 `file`, `query`, `user_agent`, `local_host`, `local_port`, `sensor`)
-            VALUES (FROM_UNIXTIME(%s), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (FROM_UNIXTIME(%s), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """,
             (event['unixtime'], remote_ip, event['src_port'], event['request'], path_id, operation_id,
              file_id, query_id, agent_id, event['dst_ip'], event['dst_port'], sensor_id, ))
