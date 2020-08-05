@@ -131,12 +131,26 @@ class Output(output.Output):
                 id = 0
         return id
 
-    def get_hashed_id(self, txn, table, filename, filesize, shasum):
-        r = self.simple_query(txn, "SELECT `id` FROM `{}` WHERE `hash` = %s".format(table), (shasum, ))
+    def get_json_id(self, txn, entry):
+        str_entry = dumps(entry)
+        r = self.simple_query(txn, "SELECT `id` FROM `queries` WHERE JSON_CONTAINS(`query`, %s)", (str_entry, ))
+        if r:
+            id = r[0][0]
+        else:
+            self.simple_query(txn, "INSERT INTO `queries` (`query`) VALUES (%s)", (str_entry, ))
+            r = self.simple_query(txn, 'SELECT LAST_INSERT_ID()', ())
+            if r:
+                id = int(r[0][0])
+            else:
+                id = 0
+        return id
+
+    def get_hashed_id(self, txn, filename, filesize, shasum):
+        r = self.simple_query(txn, "SELECT `id` FROM `files` WHERE `hash` = %s", (shasum, ))
         if r:
             id = int(r[0][0])
         else:
-            self.simple_query(txn, "INSERT INTO `{}` (`filename`, `filesize`, `hash`) VALUES (%s, %s, %s)".format(table),
+            self.simple_query(txn, "INSERT INTO `fiels` (`filename`, `filesize`, `hash`) VALUES (%s, %s, %s)",
                               (filename, filesize, shasum, ))
             r = self.simple_query(txn, 'SELECT LAST_INSERT_ID()', ())
             if r:
@@ -152,11 +166,11 @@ class Output(output.Output):
         path_id = self.get_id(txn, 'urls', 'path', event['url'])
 
         if 'filename' in event:
-            file_id = self.get_hashed_id(txn, 'files', event['filename'], event['filesize'], event['sha256'])
+            file_id = self.get_hashed_id(txn, event['filename'], event['filesize'], event['sha256'])
         else:
             file_id = 'NULL'
         if 'query' in event:
-            query_id = self.get_id(txn, 'queries', 'query', dumps(event['query']))
+            query_id = self.get_json_id(txn, event['query'])
         else:
             query_id = 'NULL'
 
