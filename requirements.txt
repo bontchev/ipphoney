@@ -7,13 +7,16 @@ maxminddb>=1.3.0
 
 # The following modules are required for the corresponding output plugins
 
+# hpfeed
+hpfeeds>=3.0.0
+
 # MySQL
 # If this fails, see the documentation docs/sql/README.md
 #  or try `sudo apt-get install libmysqlclient-dev`
 mysqlclient>=1.3.12
 
-# hpfeed
-hpfeeds>=3.0.0
+# postgres
+#psycopg2
 
 
 # TODO:
@@ -38,9 +41,6 @@ hpfeeds>=3.0.0
 
 # elasticlog
 #elasticsearch>=7.7.1
-
-# postgres
-#psycopg2
 
 # kafka
 #afkak

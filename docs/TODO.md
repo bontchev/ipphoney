@@ -8,7 +8,6 @@
   * Influx
   * Influx 2.0
   * MongoDB
-  * PostgreSQL
   * RedisDB
   * RethinkDB
   * syslog

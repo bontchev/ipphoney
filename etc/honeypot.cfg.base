@@ -128,6 +128,22 @@ enabled = false
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
 
+# PostgreSQL logging module
+#
+#[output_postgres]
+#enabled = false
+#host = hostname
+#username = ipphoney
+#password = secret
+#port = 5432
+#database = ipphoney
+#debug = false
+# Whether to store geolocation data in the database
+#geoip = true
+# Location of the databases used for geolocation
+#geoip_citydb = data/GeoLite2-City.mmdb
+#geoip_asndb = data/GeoLite2-ASN.mmdb
+
 # SQLite3 logging module
 #
 # Logging to SQLite3 database. To init the database, use the script
@@ -273,22 +289,6 @@ enabled = false
 #verify_certs = true
 # Path to trusted CA certs on disk
 #ca_certs = /path/to/cert/file/elastic_ca.crt
-
-# PostgreSQL logging module
-#
-#[output_postgres]
-#enabled = false
-#host = hostname
-#username = ipphoney
-#password = secret
-#port = 5432
-#database = ipphoney
-#debug = false
-# Whether to store geolocation data in the database
-#geoip = true
-# Location of the databases used for geolocation
-#geoip_citydb = data/GeoLite2-City.mmdb
-#geoip_asndb = data/GeoLite2-ASN.mmdb
 
 # Local Syslog output module
 #
