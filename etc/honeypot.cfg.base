@@ -89,6 +89,18 @@ log_path = log
 # Output entries need to start with 'output_' and have the 'enabled' entry.
 # ============================================================================
 
+# HPFeeds
+#
+# Note the lack of "s" at the end:
+[output_hpfeed]
+enabled = false
+#server = hpfeeds.mysite.org
+#tlscert = /path/to/tls/cert/file
+#port = 10000
+#identifier = abc123
+#secret = secret
+#channel = ipphoney
+
 # JSON based logging module
 #
 #[output_jsonlog]
@@ -141,18 +153,6 @@ log_path = log
 
 
 # TODO:
-
-# HPFeeds
-#
-# Note the lack of "s" at the end:
-[output_hpfeed]
-enabled = false
-#server = hpfeeds.mysite.org
-#tlscert = /path/to/tls/cert/file
-#port = 10000
-#identifier = abc123
-#secret = secret
-#channel = ipphoney
 
 # MongoDB logging module
 #

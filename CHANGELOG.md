@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   * `Print-Job`
 * Output plugin support
 * Implemented output plugins for
+  * HPFeeds
   * JSON
   * MySQL
   * SQLite3

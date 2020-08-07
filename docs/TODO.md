@@ -5,7 +5,6 @@
 * Additional output plugins for:
   * CouchDB
   * Elasticsearch
-  * HPFeeds
   * Influx
   * Influx 2.0
   * MongoDB
