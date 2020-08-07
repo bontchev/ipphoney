@@ -150,7 +150,7 @@ class Output(output.Output):
         if r:
             id = int(r[0][0])
         else:
-            self.simple_query(txn, "INSERT INTO `fiels` (`filename`, `filesize`, `hash`) VALUES (%s, %s, %s)",
+            self.simple_query(txn, "INSERT INTO `files` (`filename`, `filesize`, `hash`) VALUES (%s, %s, %s)",
                               (filename, filesize, shasum, ))
             r = self.simple_query(txn, 'SELECT LAST_INSERT_ID()', ())
             if r:
@@ -162,9 +162,12 @@ class Output(output.Output):
     def connect_event(self, txn, event):
         remote_ip = event['src_ip']
 
-        operation_id = self.get_id(txn, 'operations', 'op_name', event['operation'])
         path_id = self.get_id(txn, 'urls', 'path', event['url'])
 
+        if 'operation' in event:
+            operation_id = self.get_id(txn, 'operations', 'op_name', event['operation'])
+        else:
+            operation_id = 'NULL'
         if 'filename' in event:
             file_id = self.get_hashed_id(txn, event['filename'], event['filesize'], event['sha256'])
         else:
