@@ -304,6 +304,7 @@ class Index(Resource):
             event['eventid'] = 'ipphoney.connect'
         else:
             event['eventid'] = 'ipphoney.' + query['operation'].lower()
+            event['operation'] = query['operation']
         event['timestamp'] = get_utc_time(unix_time)
         event['unixtime'] = unix_time
         event['url'] = unquote(decode(request.uri))
@@ -312,7 +313,6 @@ class Index(Resource):
         event['dst_port'] = self.cfg['port']
         event['sensor'] = self.cfg['sensor']
         event['request'] = decode(request.method)
-        event['operation'] = query['operation']
         if file_info is not None:
             event['filename'] = file_info['filename']
             event['filesize'] = file_info['filesize']
