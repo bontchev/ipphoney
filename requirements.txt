@@ -10,6 +10,9 @@ maxminddb>=1.3.0
 # hpfeed
 hpfeeds>=3.0.0
 
+# mongodb
+#pymongo
+
 # MySQL
 # If this fails, see the documentation docs/sql/README.md
 #  or try `sudo apt-get install libmysqlclient-dev`
@@ -26,9 +29,6 @@ mysqlclient>=1.3.12
 
 # influx2 (requires Python 3)
 #influxdb-client
-
-# mongodb
-#pymongo
 
 # redisdb
 #redis

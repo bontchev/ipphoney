@@ -108,6 +108,24 @@ enabled = false
 #logfile = log/ipphoney.json
 #epoch_timestamp = true
 
+# MongoDB logging module
+#
+#[output_mongodb]
+#enabled = false
+#host = 127.0.0.1
+#port = 27017
+#username = ipphoney
+#password = secret
+#database = ipphoney
+# Note: .format(username, password, host, port, database) is done
+#  on the following string; make sure that there are 5 placeholders ({}) in it
+#connection_string = mongodb://{}:{}@{}:{}/{}
+# Whether to store geolocation data in the database
+#geoip = true
+# Location of the databases used for geolocation
+#geoip_citydb = data/GeoLite2-City.mmdb
+#geoip_asndb = data/GeoLite2-ASN.mmdb
+
 # MySQL logging module
 # Database structure for this module is supplied in docs/sql/mysql.sql
 #
@@ -169,24 +187,6 @@ enabled = false
 
 
 # TODO:
-
-# MongoDB logging module
-#
-#[output_mongodb]
-#enabled = false
-#host = 127.0.0.1
-#port = 27017
-#username = ipphoney
-#password = secret
-#database = ipphoney
-# Note: .format(username, password, host, port, database) is done
-#  on the following string; make sure that there are 5 placeholders ({}) in it
-#connection_string = mongodb://{}:{}@{}:{}/{}
-# Whether to store geolocation data in the database
-#geoip = true
-# Location of the databases used for geolocation
-#geoip_citydb = data/GeoLite2-City.mmdb
-#geoip_asndb = data/GeoLite2-ASN.mmdb
 
 # RedisDB logging module
 #

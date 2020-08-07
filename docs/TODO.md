@@ -7,7 +7,6 @@
   * Elasticsearch
   * Influx
   * Influx 2.0
-  * MongoDB
   * RedisDB
   * RethinkDB
   * syslog

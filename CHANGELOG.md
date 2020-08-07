@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Implemented output plugins for
   * HPFeeds
   * JSON
+  * MongoDB
   * MySQL
   * PostgreSQL
   * SQLite3
