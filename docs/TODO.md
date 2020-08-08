@@ -1,7 +1,5 @@
 # Planned Future Improvements
 
-* A script for starting, stopping, and restarting the honeypot
-* Make the script compatible with Python 3.x
 * Additional output plugins for:
   * CouchDB
   * Elasticsearch
