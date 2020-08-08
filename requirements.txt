@@ -22,7 +22,7 @@ pymongo
 mysqlclient>=1.3.12
 
 # postgres
-psycopg2
+psycopg2-binary
 
 # redisdb
 redis
