@@ -2,7 +2,6 @@
 
 * Additional output plugins for:
   * CouchDB
-  * Elasticsearch
   * Influx
   * Influx 2.0
   * RethinkDB

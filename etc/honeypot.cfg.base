@@ -89,6 +89,50 @@ log_path = log
 # Output entries need to start with 'output_' and have the 'enabled' entry.
 # ============================================================================
 
+# Elasticsearch logging module
+#
+#[output_elastic]
+#enabled = false
+#host = localhost
+#port = 9200
+#index = ipphoney
+#
+# type has been deprecated since ES 6.0.0
+# use _doc which is the default type. See
+# https://stackoverflow.com/a/53688626 for
+# more information
+#
+#type = _doc
+#
+# set pipeline = geoip to map src_ip to
+# geo location data. You can use a custom
+# pipeline but you must ensure it exists
+# in elasticsearch.
+#
+#pipeline = geoip
+#
+# Authentication. When x-pack.security is enabled
+# in ES, default users have been created and requests
+# must be authenticated.
+#
+# Credentials
+#
+#username = ipphoney
+#password = secret
+#
+# TLS encryption. Communications between the client (ipphoney) 
+# and the ES server should naturally be protected by encryption
+# if requests are authenticated (to prevent from man-in-the-middle 
+# attacks). The following options are then paramount
+# if username and password are provided.
+#
+# use ssl/tls
+#ssl = true
+# verify SSL certificates
+#verify_certs = true
+# Path to trusted CA certs on disk
+#ca_certs = /path/to/cert/file/elastic_ca.crt
+
 # HPFeeds
 #
 # Note the lack of "s" at the end:
@@ -245,50 +289,6 @@ enabled = false
 # Location of the databases used for geolocation
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
-
-# Elasticsearch logging module
-#
-#[output_elastic]
-#enabled = false
-#host = localhost
-#port = 9200
-#index = ipphoney
-#
-# type has been deprecated since ES 6.0.0
-# use _doc which is the default type. See
-# https://stackoverflow.com/a/53688626 for
-# more information
-#
-#type = _doc
-#
-# set pipeline = geoip to map src_ip to
-# geo location data. You can use a custom
-# pipeline but you must ensure it exists
-# in elasticsearch.
-#
-#pipeline = geoip
-#
-# Authentication. When x-pack.security is enabled
-# in ES, default users have been created and requests
-# must be authenticated.
-#
-# Credentials
-#
-#username = ipphoney
-#password = secret
-#
-# TLS encryption. Communications between the client (ipphoney) 
-# and the ES server should naturally be protected by encryption
-# if requests are authenticated (to prevent from man-in-the-middle 
-# attacks). The following options are then paramount
-# if username and password are provided.
-#
-# use ssl/tls
-#ssl = true
-# verify SSL certificates
-#verify_certs = true
-# Path to trusted CA certs on disk
-#ca_certs = /path/to/cert/file/elastic_ca.crt
 
 # Local Syslog output module
 #
