@@ -7,7 +7,6 @@
   * Elasticsearch
   * Influx
   * Influx 2.0
-  * RedisDB
   * RethinkDB
   * syslog
 * Emulation of additional IPP operations:

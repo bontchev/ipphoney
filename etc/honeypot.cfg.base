@@ -162,6 +162,22 @@ enabled = false
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
 
+# RedisDB logging module
+#
+#[output_redisdb]
+#enabled = false
+#host = 127.0.0.1
+#port = 6379
+# DB of the redis server. Defaults to 0
+#db = 0
+# Password of the redis server. Defaults to None
+#password = secret
+# Name of the list to push to or the channel to publish to. Required
+#keyname = ipphoney
+# Method to use when sending data to redis.
+# Can be one of [lpush, rpush, publish]. Defaults to lpush
+#send_method = lpush
+
 # SQLite3 logging module
 #
 # Logging to SQLite3 database. To init the database, use the script
@@ -187,22 +203,6 @@ enabled = false
 
 
 # TODO:
-
-# RedisDB logging module
-#
-#[output_redisdb]
-#enabled = false
-#host = 127.0.0.1
-#port = 6379
-# DB of the redis server. Defaults to 0
-#db = 0
-# Password of the redis server. Defaults to None
-#password = secret
-# Name of the list to push to or the channel to publish to. Required
-#keyname = ipphoney
-# Method to use when sending data to redis.
-# Can be one of [lpush, rpush, publish]. Defaults to lpush
-#send_method = lpush
 
 # Rethinkdb output module
 #
