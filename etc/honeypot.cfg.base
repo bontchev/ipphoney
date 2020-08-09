@@ -238,6 +238,18 @@ enabled = false
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
 
+# Local Syslog output module
+#
+# This sends log messages to the local syslog daemon.
+#
+#[output_localsyslog]
+#enabled = false
+# Facility can be:
+# KERN, USER, MAIL, DAEMON, AUTH, LPR, NEWS, UUCP, CRON, SYSLOG and LOCAL0 to LOCAL7.
+#
+# default: USER
+#facility = USER
+
 # Text output
 # This writes audit log entries to a text file
 #
@@ -289,20 +301,6 @@ enabled = false
 # Location of the databases used for geolocation
 #geoip_citydb = data/GeoLite2-City.mmdb
 #geoip_asndb = data/GeoLite2-ASN.mmdb
-
-# Local Syslog output module
-#
-# This sends log messages to the local syslog daemon.
-# Facility can be:
-# KERN, USER, MAIL, DAEMON, AUTH, LPR, NEWS, UUCP, CRON, SYSLOG and LOCAL0 to LOCAL7.
-#
-# Format can be:
-# text, cef
-#
-#[output_localsyslog]
-#enabled = false
-#facility = USER
-#format = text
 
 # Kafka logging module
 #

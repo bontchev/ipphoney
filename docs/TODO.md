@@ -5,7 +5,6 @@
   * Influx
   * Influx 2.0
   * RethinkDB
-  * syslog
 * Emulation of additional IPP operations:
   * `Get-Job-Attributes`
   * `Cancel-Job`
