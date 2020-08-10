@@ -89,6 +89,20 @@ log_path = log
 # Output entries need to start with 'output_' and have the 'enabled' entry.
 # ============================================================================
 
+# CouchDB logging module
+#
+#[output_couch]
+#enabled = false
+#host = localhost
+#port = 5984
+#username = ipphoney
+#password = secret
+#database = ipphoney
+#geoip = true
+# Location of the databases used for geolocation
+#geoip_citydb = data/GeoLite2-City.mmdb
+#geoip_asndb = data/GeoLite2-ASN.mmdb
+
 # Elasticsearch logging module
 #
 #[output_elastic]
@@ -144,6 +158,15 @@ enabled = false
 #identifier = abc123
 #secret = secret
 #channel = ipphoney
+
+# InfluxDB 2.0 logging module
+#
+#[output_influx2]
+#enabled = false
+#host = hostname
+#token = token
+#org = organization
+#bucket = ipphoney
 
 # JSON based logging module
 #
@@ -278,29 +301,6 @@ enabled = false
 #port = 8086
 #database_name = ipphoney
 #retention_policy_duration = 12w
-
-# InfluxDB 2.0 logging module
-#
-#[output_influx2]
-#enabled = false
-#host = hostname
-#token = token
-#org = organization
-#bucket = ipphoney
-
-# CouchDB logging module
-#
-#[output_couch]
-#enabled = false
-#host = localhost
-#port = 5984
-#username = ipphoney
-#password = secret
-#database = ipphoney
-#geoip = true
-# Location of the databases used for geolocation
-#geoip_citydb = data/GeoLite2-City.mmdb
-#geoip_asndb = data/GeoLite2-ASN.mmdb
 
 # Kafka logging module
 #

@@ -7,11 +7,17 @@ maxminddb>=1.3.0
 
 # The following modules are required for the corresponding output plugins
 
+# couchdb
+couchdb
+
 # elasticlog
 elasticsearch>=7.7.1
 
 # hpfeed
 hpfeeds>=3.0.0
+
+# influx2 (requires Python 3)
+#influxdb-client
 
 # mongodb
 pymongo
@@ -33,14 +39,8 @@ redis
 # influx
 #influxdb
 
-# influx2 (requires Python 3)
-#influxdb-client
-
 # rethinkdblog
 #rethinkdb>=2.4
-
-# couchdb
-#couchdb
 
 # kafka
 #afkak

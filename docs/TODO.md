@@ -1,9 +1,7 @@
 # Planned Future Improvements
 
 * Additional output plugins for:
-  * CouchDB
   * Influx
-  * Influx 2.0
   * RethinkDB
 * Emulation of additional IPP operations:
   * `Get-Job-Attributes`
