@@ -14,7 +14,7 @@ from twisted.web import server
 from twisted.python import log
 from twisted.internet import reactor
 
-__VERSION__ = '1.0.0'
+__VERSION__ = '1.0.1'
 __description__ = 'IPP Honeypot'
 __license__ = 'GPL'
 __uri__ = 'https://gitlab.com/bontchev/ipphoney'

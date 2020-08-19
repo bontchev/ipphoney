@@ -1,7 +1,7 @@
 FROM python
 LABEL maintainer="Bontchev"
 LABEL name="ipphoney"
-LABEL version="1.0.0"
+LABEL version="1.0.1"
 EXPOSE 631
 COPY . /ipphoney/
 WORKDIR /ipphoney
