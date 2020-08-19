@@ -1,4 +1,4 @@
-# IPPHoney: an Internet Printig Protocol Honeypot
+# IPPHoney: an Internet Printing Protocol Honeypot
 
 This is a honeypot simulating a printer that supports the Internet Printing
 Protocol and is exposed to the Internet. It uses ideas from various other
