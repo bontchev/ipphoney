@@ -1,13 +1,20 @@
 
-from core import output
-from core.config import CONFIG
-from core.tools import geolocate
-
 from json import dumps
 from sys import exc_info
 from hashlib import sha256
 from geoip2.database import Reader
-from MySQLdb import Error, OperationalError
+
+try:
+    from MySQLdb import (Error, OperationalError)
+except ImportError:
+    try:
+        from MySQLdb._exceptions import (Error, OperationalError)
+    except ImportError:
+        from _mysql_exceptions import (Error, OperationalError)
+
+from core import output
+from core.config import CONFIG
+from core.tools import geolocate
 
 from twisted.python import log
 from twisted.python.compat import reraise
@@ -28,11 +35,11 @@ class ReconnectingConnectionPool(ConnectionPool):
     def _runInteraction(self, interaction, *args, **kw):
 
         def rerise_exception(conn):
-            excType, excValue, excTraceback = exc_info()
+            _, excValue, excTraceback = exc_info()
             try:
                 conn.rollback()
             except:
-                log.msg(None, 'Rollback failed')
+                log.msg('Rollback failed')
             reraise(excValue, excTraceback)
 
         conn = self.connectionFactory(self)
